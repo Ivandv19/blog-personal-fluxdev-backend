@@ -11,7 +11,7 @@
         "@payloadcms/ui": "3.76.1",
         "cross-env": "^7.0.3",
         "dotenv": "16.4.7",
-        "graphql": "^16.8.1",
+        "graphql": "^16.13.0",
         "next": "15.4.11",
         "payload": "3.76.1",
         "react": "19.2.1",
@@ -25,10 +25,10 @@
         "@types/react": "19.2.9",
         "@types/react-dom": "19.2.3",
         "@vitejs/plugin-react": "4.5.2",
-        "eslint": "^9.16.0",
+        "eslint": "^9.39.3",
         "eslint-config-next": "15.4.11",
         "jsdom": "28.0.0",
-        "prettier": "^3.4.2",
+        "prettier": "^3.8.1",
         "tsx": "4.21.0",
         "typescript": "5.7.3",
         "vite-tsconfig-paths": "6.0.5",
@@ -935,7 +935,7 @@
 
     "gopd": ["gopd@1.2.0", "", {}, "sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg=="],
 
-    "graphql": ["graphql@16.13.0", "", {}, "sha512-uSisMYERbaB9bkA9M4/4dnqyktaEkf1kMHNKq/7DHyxVeWqHQ2mBmVqm5u6/FVHwF3iCNalKcg82Zfl+tffWoA=="],
+    "graphql": ["graphql@16.13.1", "", {}, "sha512-gGgrVCoDKlIZ8fIqXBBb0pPKqDgki0Z/FSKNiQzSGj2uEYHr1tq5wmBegGwJx6QB5S5cM0khSBpi/JFHMCvsmQ=="],
 
     "graphql-http": ["graphql-http@1.22.4", "", { "peerDependencies": { "graphql": "16.12.0" } }, "sha512-OC3ucK988teMf+Ak/O+ZJ0N2ukcgrEurypp8ePyJFWq83VzwRAmHxxr+XxrMpxO/FIwI4a7m/Fzv3tWGJv0wPA=="],
 

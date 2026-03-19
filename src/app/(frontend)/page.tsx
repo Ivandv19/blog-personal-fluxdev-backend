@@ -7,11 +7,14 @@ import { fileURLToPath } from 'url'
 import config from '@/payload.config'
 import './styles.css'
 
+// Página de inicio del frontend
 export default async function HomePage() {
   const headers = await getHeaders()
   const payloadConfig = await config
+  
+  // Obtenemos la instancia de Payload para interactuar con la DB/Auth
   const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
+  const { user } = await payload.auth({ headers }) // Verificamos si hay usuario logueado
 
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
@@ -27,8 +30,10 @@ export default async function HomePage() {
             width={65}
           />
         </picture>
+        {/* Mensaje dinámico según el estado de autenticación */}
         {!user && <h1>Welcome to your new project.</h1>}
         {user && <h1>Welcome back, {user.email}</h1>}
+        
         <div className="links">
           <a
             className="admin"

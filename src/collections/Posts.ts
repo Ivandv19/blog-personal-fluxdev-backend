@@ -1,12 +1,13 @@
 import type { CollectionConfig } from 'payload'
 
+// Definición de la colección de Artículos o Posts
 export const Posts: CollectionConfig = {
     slug: 'posts',
     access: {
-        read: () => true,
+        read: () => true, // Todos pueden leer los posts
     },
     admin: {
-        useAsTitle: 'title',
+        useAsTitle: 'title', // El título se usa como etiqueta principal
     },
     fields: [
         {
@@ -15,17 +16,17 @@ export const Posts: CollectionConfig = {
             required: true,
         },
         {
-            name: 'slug',
+            name: 'slug', // URL amigable única
             type: 'text',
             unique: true,
             required: true,
         },
         {
-            name: 'content',
+            name: 'content', // Contenido en texto enriquecido (RichText)
             type: 'richText',
         },
         {
-            name: 'tags',
+            name: 'tags', // Etiquetas organizadas en un array
             type: 'array',
             labels: {
                 singular: 'Tag',
@@ -40,7 +41,7 @@ export const Posts: CollectionConfig = {
             ],
         },
         {
-            name: 'date',
+            name: 'date', // Fecha de publicación
             type: 'date',
         },
     ],

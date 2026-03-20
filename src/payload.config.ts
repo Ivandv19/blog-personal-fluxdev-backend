@@ -21,6 +21,12 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  // Localización (i18n)
+  localization: {
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
+    fallback: true,
+  },
   // Lista de colecciones registradas en el sistema
   collections: [Users, Media, Posts],
   // Editor de texto enriquecido moderno Lexical

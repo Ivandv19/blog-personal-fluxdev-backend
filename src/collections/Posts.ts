@@ -14,16 +14,19 @@ export const Posts: CollectionConfig = {
             name: 'title',
             type: 'text',
             required: true,
+            localized: true,
         },
         {
             name: 'slug', // URL amigable única
             type: 'text',
             unique: true,
             required: true,
+            localized: true,
         },
         {
             name: 'content', // Contenido en texto enriquecido (RichText)
             type: 'richText',
+            localized: true,
         },
         {
             name: 'tags', // Etiquetas organizadas en un array

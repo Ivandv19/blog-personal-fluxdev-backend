@@ -1,67 +1,74 @@
-# Payload Blank Template
+# FluxDev Blog (Panel de Administración)
 
-This template comes configured with the bare minimum to get started on anything you need.
+## Descripción
 
-## Quick start
+Este proyecto es el panel de administración central del Blog FluxDev. Funciona como un gestor de contenido (CMS) donde el administrador puede escribir, editar y organizar los artículos que posteriormente se muestran al público en la página web.
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+## Características
 
-## Quick Start - local setup
+- **Gestión Simple**: Interfaz gráfica que permite redactar artículos y crear contenido fácilmente usando un editor visual.
+- **Soporte Multilingüe**: Opción para agregar la traducción de un artículo (español e inglés) directamente desde la misma pantalla.
+- **Gestor de Archivos**: Permite subir y organizar todas las imágenes utilizadas en las publicaciones de manera centralizada.
+- **Disponibilidad Automática**: El contenido guardado se estructura y se proporciona automáticamente a través de una API para que el sitio web lo pueda consumir.
 
-To spin up this template locally, follow these steps:
+## Secciones
 
-### Clone
+1. **Artículos (Posts)**: La vista principal donde se redactan, editan y publican las entradas del blog.
+2. **Archivos (Media)**: Sección dedicada para almacenar y organizar todas las fotografías e ilustraciones.
+3. **Usuarios (Users)**: Apartado para gestionar el acceso de los administradores al panel de control.
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+## Uso
 
-### Development
+- **Acceso Restringido**: Navega a la ruta principal de administración e inicia sesión con las credenciales correspondientes.
+- **Creación de Contenido**: Ingresa a la sección de artículos para redactar y añadir imágenes a una nueva publicación.
+- **Gestión Continua**: Revisa el listado de publicaciones para editar contenido existente o gestionar configuraciones adicionales.
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URL` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+## Tecnologías Utilizadas
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+- Payload CMS v3
+- Next.js 15
+- PostgreSQL (Base de datos)
+- Node.js
+- pnpm
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+## Instalación
 
-#### Docker (Optional)
+1. **Clonar el Repositorio**: Descarga este proyecto en tu computadora usando Git.
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+```bash
+git clone https://github.com/Ivandv19/blog-personal-fluxdev-backend.git
+```
 
-To do so, follow these steps:
+2. **Instalar Dependencias**: Entra a la carpeta del proyecto a través de la terminal y ejecuta:
 
-- Modify the `MONGODB_URL` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URL` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+```bash
+pnpm install
+```
 
-## How it works
+3. **Variables de Entorno**: Crea un archivo `.env` en la raíz (puedes apoyarte en `.env.example`). Necesitarás especificar `DATABASE_URL` vinculándolo a tu base de datos local y generar una contraseña en `PAYLOAD_SECRET`.
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+4. **Iniciar el Proyecto**: Ejecuta el servidor localmente con el siguiente comando:
 
-### Collections
+```bash
+pnpm run dev
+```
 
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
+## Créditos
 
-- #### Users (Authentication)
+Este es el proyecto interno que maneja los datos y artículos mostrados en el portafolio web.
 
-  Users are auth-enabled collections that have access to the admin panel.
+- Desarrollado por Ivan Cruz.
 
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
+## Despliegue
 
-- #### Media
+Este proyecto está preparado para funcionar mediante contenedores Docker y se despliega y administra a través de plataformas como **Dokploy**.
 
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
+> *Nota: Próximamente se agregará un enlace a **Swagger** donde se podrá consultar la documentación de la API.*
 
-### Docker
+## Licencia
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+Licencia de Uso Personal:
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+Este software es propiedad de **Ivan Cruz**. Se permite el uso de este software solo para fines personales y no comerciales. No se permite la distribución, modificación ni uso comercial de este software sin el consentimiento expreso de **Ivan Cruz**.
 
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
-
-## Questions
-
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+Cualquier uso no autorizado puede resultar en acciones legales.

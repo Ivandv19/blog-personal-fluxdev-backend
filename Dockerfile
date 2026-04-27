@@ -1,23 +1,22 @@
-# Etapa base (Node.js)
-FROM node:22-alpine AS base
+# Etapa base para Node (para el final)
+FROM node:22-alpine AS runner_base
 WORKDIR /app
 
-# Instalación de dependencias con Bun
-FROM base AS deps
-RUN apk add --no-cache libc6-compat
-RUN npm install -g bun
+# Instalación de dependencias con Bun Oficial
+FROM oven/bun:alpine AS deps
+WORKDIR /app
 COPY package.json bun.lock* ./
 RUN bun install --frozen-lockfile
 
 # Etapa de compilación (Build)
-FROM base AS builder
+FROM oven/bun:alpine AS builder
+WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm install -g bun
 RUN bun run build
 
 # Imagen final de producción
-FROM base AS runner
+FROM runner_base AS runner
 WORKDIR /app
 ENV NODE_ENV production
 

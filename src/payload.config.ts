@@ -56,7 +56,6 @@ export default buildConfig({
     }),
     swaggerUI({
       docsUrl: '/docs',
-      url: '/api/openapi.json',
     }),
   ],
 })

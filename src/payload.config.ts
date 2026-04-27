@@ -4,6 +4,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { openapi, swaggerUI } from 'payload-oapi'
 
 // Importación de las definiciones de colecciones
 import { Users } from './collections/Users'
@@ -43,5 +44,17 @@ export default buildConfig({
     },
   }),
   sharp,
-  plugins: [],
+  plugins: [
+    openapi({
+      openapiVersion: '3.0',
+      metadata: {
+        title: 'Fluxdev Blog API',
+        description: 'Documentación oficial de la API del CMS Fluxdev.',
+        version: '1.0.0',
+      },
+    }),
+    swaggerUI({
+      docsUrl: '/docs',
+    }),
+  ],
 })

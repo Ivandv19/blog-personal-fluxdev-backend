@@ -10,8 +10,8 @@ services:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
-    # Usar pnpm para instalar e iniciar
-    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
+    # Usar Bun para instalar e iniciar
+    command: sh -c "npm install -g bun && bun install && bun run dev"
     env_file:
       - .env
 

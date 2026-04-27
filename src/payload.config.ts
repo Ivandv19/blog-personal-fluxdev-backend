@@ -54,8 +54,39 @@ export default buildConfig({
         version: '1.0.0',
       },
     }),
-    swaggerUI({
-      docsUrl: '/docs',
-    }),
+  ],
+  endpoints: [
+    {
+      path: '/docs',
+      method: 'get',
+      handler: async () => {
+        return new Response(`
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <title>SwaggerUI</title>
+            <link href="https://cdn.jsdelivr.net/npm/swagger-ui@5.20.0/dist/swagger-ui.min.css" rel="stylesheet">
+          </head>
+          <body>
+          <div id="swagger-ui"></div>
+          <script src="https://cdn.jsdelivr.net/npm/swagger-ui@5.20.0/dist/swagger-ui-bundle.min.js"></script>
+          <script>
+            window.onload = () => {
+              window.ui = SwaggerUIBundle({
+                url: '/api/openapi.json',
+                dom_id: '#swagger-ui',
+              });
+            };
+          </script>
+          </body>
+          </html>
+        `, {
+          headers: {
+            'content-type': 'text/html',
+          },
+        })
+      },
+    },
   ],
 })

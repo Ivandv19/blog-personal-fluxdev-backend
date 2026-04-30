@@ -18,7 +18,7 @@ RUN npm run build
 # Imagen final de producción
 FROM runner_base AS runner
 WORKDIR /app
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Usuario de seguridad
 RUN addgroup --system --gid 1001 nodejs
@@ -33,7 +33,7 @@ USER nextjs
 
 # Puerto 3050
 EXPOSE 3050
-ENV PORT 3050
+ENV PORT=3050
 
 # Iniciar servidor
 CMD ["node", "server.js"]
